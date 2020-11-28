@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+   <head>
+      <!-- meta elements start -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <!-- meta elements end -->
+      <title>Home</title>
+      <link href="style.css" type="text/css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   </head>
+   <body>
+      <div class="create-board">
+         <div class="main-tt">Create Your Board</div>
+         <input type="text" placeholder="Create your board" class="custom-box" id="board">
+         <a href="board.html" onClick="createBoard()" class="btn btn-primary custom-btn">Create Board</a>
+      </div>
+      <script>
+         function createBoard() {
+             var boardname = document.getElementById('board').value;
+             localStorage.setItem("board", boardname);
+             //alert(boardname);
+            // document.getElementById("board-box").style.display = "block";
+             window.href = "task-management/index.html";
+         }
+      </script>
+   </body>
+</html>

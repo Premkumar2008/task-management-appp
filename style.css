@@ -1,0 +1,115 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: Poppins, sans-serif;
+}
+
+.board-title {
+	padding: 20px;
+	font-size: 20px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.create-list.board-title {
+	float: right;
+	font-size: 20px;
+}
+
+.board-title {
+	font-weight: 600;
+	float: left
+}
+
+.board-head {
+	border-bottom: 1px solid rgb(128 128 128 / 20%);
+}
+
+.list_card_box {
+	margin-top: 40px;
+	box-shadow: 1px 3px 4px grey;
+}
+
+.row.list-container {
+	margin: 20px;
+}
+
+.create-board {
+	background-color: rgb(224 247 250 / 41%);
+	width: 450px;
+	padding: 30px;
+	border: 1px solid rgb(128 128 128 / 18%);
+	border-radius: 4px;
+	margin: 10% auto;
+	box-shadow: 0px 0px 7px rgb(128 128 128 / 30%);
+}
+
+.custom-box,
+.custom-box:focus {
+	width: 100%;
+	border: 1px solid rgb(128 128 128 / 39%);
+	padding: 10px;
+	border-radius: 4px;
+	outline: none;
+}
+
+.custom-btn {
+	width: 100%;
+	margin-top: 22px;
+	padding: 10px !important;
+	font-weight: 600;
+}
+
+.modal-body {
+	background-color: rgb(224 247 250 / 22%);
+}
+
+.list-boxes {
+	font-weight: 600;
+	background-color: rgb(178 223 219 / 41%);
+	padding: 10px;
+	border-bottom: 1px solid rgb(128 128 128 / 15%);
+}
+
+.btn.btn-info {
+	font-size: 14px;
+	font-weight: 500;
+	width: 100%;
+	border-radius: 0px;
+	margin-top: 0px;
+	padding: 8px;
+}
+
+#card-desc {
+	font-weight: 400 !important;
+	margin-top: 20px;
+}
+
+.card-desc {
+	font-weight: 400 !important;
+}
+
+.card-title {
+	font-weight: 500 !important;
+}
+
+.card-contain {
+	background-color: white;
+	padding: 10px;
+	margin-top: 15px;
+	border-radius: 5px;
+	box-shadow: 0px 1px 8px rgb(128 128 128 / 30%);
+}
+
+.main-tt {
+	font-weight: 700;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}

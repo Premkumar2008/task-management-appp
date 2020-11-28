@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+   <head>
+      <!-- meta elements start -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <!-- meta elements end -->
+      <title>Home</title>
+      <link href="style.css" type="text/css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+   </head>
+   <body onload="exe()">
+      <div class="board-box" id="board-box">
+      <div class="board-head">
+         <div class="board-title" id="board-title"></div>
+         <div class="create-list board-title">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create New List</button>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+      <div class="row list-container" id="list-render">
+      </div>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h6 class="modal-title">Create New List</h6>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <input type="text" id="list-name" class="custom-box" placeholder="Enter List Name">
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="submit" onClick="createList()" class="btn btn-primary" data-dismiss="modal">Create List</button>
+               </div>
+            </div>
+         </div>
+         <script>
+            var x = localStorage.getItem("board");
+            //alert(x);
+            document.getElementById("board-title").innerHTML = x;
+         </script>
+      </div>
+      <div class="modal" id="myModal1">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h6 class="modal-title">Create New Card</h6>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <input type="text" id="card-name" class="custom-box" placeholder="Enter Card Name">
+                  <br>
+                  <textarea row="6" placeholder="Description..." id="card-desc" class="form-control"></textarea>
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="submit" onClick="createCard(this)" class="btn btn-primary" data-dismiss="modal">Create Card</button>
+               </div>
+            </div>
+         </div>
+         <script>
+            var x = localStorage.getItem("board");
+            //alert(x);
+            document.getElementById("board-title").innerHTML = x;
+         </script>
+      </div>
+      <script>
+         function createList() {
+             var listname = document.getElementById('list-name').value;
+             var listdynamic = listname;
+             
+             
+             ///localStorage.setItem(listdynamic, listname);
+            
+          
+           var listdyn = listdynamic;
+           listdyn +=  12;
+           var list_card = '<div class="list_card_box"><div class="list-boxes" id="list-title">' + listname + '</div><div class="" id="card-inn"></div><div><a  class="btn btn-info" data-toggle="modal" data-target="#myModal1">Create Card</a></div></div>';
+         
+           localStorage.setItem(listdyn, list_card);
+           location.reload();
+          
+          
+         
+         
+         }
+      </script>
+      <script>
+         function createCard() {
+             
+             var cardname = document.getElementById('card-name').value;
+             var carddesc = document.getElementById('card-desc').value;
+             var listdynamic = cardname;
+             
+             
+            // localStorage.setItem(listdynamic, cardname);
+            
+          
+           var listdyncard = listdynamic;
+           listdyncard +=  13;
+           var list_card = '<div class="card-title">'+ cardname +'</div><div class="card-desc">'+ carddesc +'</div>';
+         
+           localStorage.setItem(listdyncard, list_card);
+           location.reload();
+          
+         
+         
+         }
+      </script>
+      <script>
+         function exe(e) {
+         var loc = JSON.stringify(localStorage);
+         var obj = JSON.parse(loc);
+         // document.getElementById("list-render").innerHTML = obj;
+         for (var key in obj) {
+         
+              var n = key.includes(12);
+              if(n){
+                  var creatediv = document.createElement("div");
+                  creatediv.classList.add('col-md-3');
+                  creatediv.innerHTML = (obj[key]);
+             document.getElementById("list-render").appendChild(creatediv);
+              }
+              var m = key.includes(13);
+              if(m){
+                 
+                  var creatediv1 = document.createElement("div");
+                  creatediv1.classList.add('card-contain');
+                  creatediv1.innerHTML = (obj[key]);
+                  
+             document.getElementById("list-title").appendChild(creatediv1);
+              }
+            // document.getElementById("list-title").innerHTML = key;
+         console.log("Key: " + key);
+         console.log("Value: " + obj[key]);
+         }
+         // console.log(loc);
+         }
+      </script>
+   </body>
+</html>
